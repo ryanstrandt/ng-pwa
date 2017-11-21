@@ -1,0 +1,34 @@
+<div class="dashboard-container container-fluid">
+	    <mat-tab-group>
+				<mat-tab label="Push Notifications">
+		  
+				  <!-- <app-control-push></app-control-push> -->
+		  
+				</mat-tab>
+				<mat-tab label="Background Sync">
+		  
+				  <!-- <app-post-tweet></app-post-tweet> -->
+		  
+				</mat-tab>
+				<mat-tab label="Broadcast Channel">
+		  
+				  <!-- <app-control-broadcast></app-control-broadcast> -->
+		  
+				</mat-tab>
+			  </mat-tab-group>
+		  
+	<div class="dashInfo-container">
+		{{ users | json }}
+		<mat-list>
+			<mat-list-item *ngFor="let user of users">
+				<button mat-button>
+					<img matListAvatar src="" alt="">
+					<h3 matLine> {{user.displayName}} </h3>
+					<p matLine>
+					<span> {{user.email}} </span>
+					<span class="demo-2"> -- {{user.content}} </span>
+					</p></button>
+			</mat-list-item>
+		</mat-list>
+	</div>
+</div>
