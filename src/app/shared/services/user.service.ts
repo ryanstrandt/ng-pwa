@@ -35,7 +35,7 @@ export class UserService {
   }
 
   getUsers() {
-    return this._http.get(this.API_URL + '/users')
+    return this._http.get('./assets/db/users.json')
       .map((res: Response) => res.json())
       .subscribe(res => {
         res.map(user => this._store.dispatch({ type: '[User] Add User', payload: user }));
