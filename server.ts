@@ -1,9 +1,9 @@
-import * as dotenv from "dotenv";
-import config from "./config";
+import * as dotenv from 'dotenv';
+import config from './server/config';
 
 dotenv.load();
 
-import App from "./app";
+import App from './server/app';
 
 const port = normalizePort(process.env.PORT || config.expressPort);
 App.set("port", port);

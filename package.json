@@ -7,17 +7,15 @@
     "start": "ng serve",
     "build": "ng build",
     "build:p": "ng build --prod --aot",
-    "build:pw": "ng build --prod --aot --watch",
     "build:ngsw": "run-s ngsw-config ngsw-copy",
-    "build:server": "tsc -p ./server",
-    "build:server-watch": "tsc -w -p ./server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngsw-config": "node_modules/.bin/ngsw-config dist src/ngsw-config.json",
-    "ngsw-copy": "cp node_modules/@angular/service-worker/ngsw-worker.js ./dist",
-    "dev": "run-p build:server-watch build:ngsw server",
-    "server": "nodemon dist"
+    "ngsw-config": "node_modules/.bin/ngsw-config dist/public src/ngsw-config.json",
+    "ngsw-copy": "cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/public",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:pwa": "run-s build:p build:ngsw webpack:server server",
+    "server": "node dist/server.js"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +60,7 @@
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.2",
     "protractor": "~5.1.2",
+    "ts-loader": "^3.1.1",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"

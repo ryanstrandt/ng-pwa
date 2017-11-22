@@ -1,17 +1,17 @@
-import * as bodyParser from "body-parser";
-import * as express from "express";
-import * as session from "express-session";
-import config from "./config";
+import * as bodyParser from 'body-parser';
+import * as express from 'express';
+import * as session from 'express-session';
+import config from './config';
 
 // import routes
-import {apiRoutes, appRoutes} from "./routes";
+import {apiRoutes, appRoutes} from './routes';
 
 // Creates and configures an ExpressJS web server.
 class App {
 
   // ref to Express instance
   public express: express.Application;
-  private public: string = "./dist";
+  private public: string = './dist/public';
 
   // Run configuration methods on the Express instance.
   constructor() {
@@ -44,18 +44,14 @@ class App {
 
   // Configure Express middleware.
   private middleware(): void {
-    // this.express.use(logger('dev'));
     this.express.use(bodyParser.json());
     this.express.use(bodyParser.urlencoded({ extended: false }));
-    // this.express.use(passport.initialize());
-    // this.express.use(passport.session());
   }
 
   // Configure API endpoints.
   private routes(): void {
-    this.express.use("/api/v1", apiRoutes);
-    this.express.use("/", appRoutes);
-    // this.express.use('/auth', authRoutes);
+    this.express.use('/api/v1', apiRoutes);
+    this.express.use('/', appRoutes);
   }
 
   private staticRoutes(): void {
