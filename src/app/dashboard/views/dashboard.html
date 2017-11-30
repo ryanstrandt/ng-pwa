@@ -17,18 +17,29 @@
 				</mat-tab>
 			  </mat-tab-group>
 		  
-	<div class="dashInfo-container">
-		{{ users | json }}
+		<!-- {{ users | json }} -->
 		<mat-list>
-			<mat-list-item *ngFor="let user of users">
-				<button mat-button>
-					<img matListAvatar src="" alt="">
+				<mat-list-item *ngFor="let user of users">
+					<img matListAvatar src="..." alt="...">
+						<button mat-button (click)="openDialog()">
+						<h3 matLine> {{user.displayName}} </h3>
+						<p matLine>
+							<span> {{user.email}} </span>
+							<span class="demo-2"> -- {{user.provider}} </span>
+						</p>	
+					</button>					
+				</mat-list-item>				
+				<!-- <button mat-button *ngFor="let user of users">
+					<mat-list-item>
+					<img matListAvatar src="..." alt="...">
 					<h3 matLine> {{user.displayName}} </h3>
 					<p matLine>
-					<span> {{user.email}} </span>
-					<span class="demo-2"> -- {{user.content}} </span>
-					</p></button>
-			</mat-list-item>
+						<span> {{user.email}} </span>
+						<span class="demo-2"> -- {{user.provider}} </span>
+					</p>	
+				</mat-list-item>
+			</button> -->
+		
 		</mat-list>
-	</div>
+
 </div>

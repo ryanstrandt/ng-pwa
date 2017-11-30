@@ -9,7 +9,6 @@ body {
 }
 
 body {
-  background: #eee;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -25,10 +24,12 @@ mat-sidenav {
     width: 200px;
 }
 
-.content {
-  padding: 16px;
+mat-toolbar {
+  z-index: 100;
 }
-
+.cdk-overlay-pane {
+  max-width:none !important;
+}
 .mat-card {
   margin-bottom: 16px;
 }

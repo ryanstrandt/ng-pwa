@@ -1,0 +1,11 @@
+@mixin full-width() {
+    max-width: none;
+    width:100vw;
+    height:100vh;
+}
+.user-dialog {
+    @include full-width();
+    .space {
+        flex: 1 1 auto;
+    }
+}
