@@ -1,0 +1,32 @@
+<div class="registrants-container container-fluid">
+    <mat-tab-group>
+            <mat-tab label="Push Notifications">
+      
+              <!-- <app-control-push></app-control-push> -->
+              <mat-list>
+                <mat-list-item *ngFor="let user of users">
+                    <img matListAvatar src="..." alt="...">
+                        <button mat-button (click)="openDialog()">
+                        <h3 matLine> {{user.displayName}} </h3>
+                        <p matLine>
+                            <span> {{user.email}} </span>
+                            <span class="demo-2"> -- {{user.provider}} </span>
+                        </p>	
+                    </button>					
+                </mat-list-item>
+            </mat-list>				
+          
+            </mat-tab>
+            <mat-tab label="Background Sync">
+      
+              <!-- <app-post-tweet></app-post-tweet> -->
+      
+            </mat-tab>
+            <mat-tab label="Broadcast Channel">
+      
+              <!-- <app-control-broadcast></app-control-broadcast> -->
+      
+            </mat-tab>
+          </mat-tab-group>
+      
+</div>

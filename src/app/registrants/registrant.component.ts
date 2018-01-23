@@ -4,18 +4,18 @@ import { User } from '../shared/models/';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { MatDialog } from '@angular/material';
-// import { UserDialogComponent } from './userDialog.component';
+import { UserDialogComponent } from './userDialog.component';
 
 interface AppState {
     users: Array<User>;
 }
 
 @Component({
-    templateUrl: './views/dashboard.html',
-    styleUrls: ['./styles/dashboard.scss']
+    templateUrl: './views/registrants.html',
+    styleUrls: ['./styles/registrants.scss']
 })
 
-export class DashboardComponent {
+export class RegistrantComponent {
     user: User;
     users: any;
     placement: string;
@@ -41,5 +41,16 @@ export class DashboardComponent {
                 // if(user) this.profiles = _profileService.getProfileHistory(user.id);
             });
         _userService.getUsers();
+    }
+    openDialog(): void {
+        const dialogRef = this.dialog.open(UserDialogComponent, {
+            panelClass: 'user-dialog',
+            data: { user: this.user }
+          });
+
+          dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+            this.user = result;
+          });
     }
 }

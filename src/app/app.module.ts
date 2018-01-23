@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { AppComponent } from './app.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { RegistrantModule } from './registrants/registrant.module';
 
 /* NgRx Store Redux components */
 import { StoreModule } from '@ngrx/store';
@@ -24,6 +25,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     DashboardModule,
+    RegistrantModule,
     HttpModule,
     AppRoutingModule,
     SharedModule.forRoot(),
